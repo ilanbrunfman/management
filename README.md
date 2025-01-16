@@ -1,2 +1,2 @@
 # management
-vue app
+vue app test
