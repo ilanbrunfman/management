@@ -1,0 +1,33 @@
+{
+    "teams": [
+      {
+        "id": "8707",
+        "teamname": "gilad",
+        "path": "gilad"
+      },
+      {
+        "id": "1199",
+        "teamname": "chen",
+        "path": "chen"
+      }
+    ],
+    "users": [
+      {
+        "id": "ac3b",
+        "username": "ilan",
+        "teamId": "8707",
+        "password": "brun"
+      },
+      {
+        "id": "e388",
+        "username": "chen",
+        "teamId": "1199",
+        "password": "1234"
+      },
+      {
+        "id": "a550",
+        "username": "gilad",
+        "password": "4321"
+      }
+    ]
+  }

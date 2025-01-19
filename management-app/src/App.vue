@@ -1,9 +1,23 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
+import { useAppStore } from '@/stores/appStore.js'
+
+const appStore = useAppStore()
+
+appStore.fetchTeams()
+appStore.fetchUsers()
+
+// import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <div>
+
+  <Suspense>
+    <RouterView />
+    <template #fallback>Loading..</template>
+  </Suspense>
+
+  <!-- <div>
     <a href="https://vite.dev" target="_blank">
       <img src="/vite.svg" class="logo" alt="Vite logo" />
     </a>
@@ -11,7 +25,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld msg="Vite + Vue" /> -->
 </template>
 
 <style scoped>
