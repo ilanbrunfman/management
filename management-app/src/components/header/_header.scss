@@ -1,0 +1,17 @@
+.header{
+
+    :root{
+        --height: 60px;
+    }
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--height);
+    background-color: pink;
+    
+    &-container{
+        background-color: red;
+    }
+}
