@@ -21,6 +21,30 @@ const router = createRouter({
             }
         },
         {
+            path: '/teams',
+            name: 'team',
+            component: () => import('@/pages/team/Teams.vue'),
+            meta: {
+              title: 'Teams'
+            }
+        },
+        {
+            path: '/add-user',
+            name: 'add-user',
+            component: () => import('@/pages/user/AddUser.vue'),
+            meta: {
+              title: 'Add new user'
+            }
+        },
+        {
+            path: '/add-meet',
+            name: 'add-meet',
+            component: () => import('@/pages/meet/AddMeet.vue'),
+            meta: {
+              title: 'Add new meet'
+            }
+        },
+        {
             path: "/:pathMatch(.*)*",
             name: "not-found",
             component: () => import("@/pages/PageNotFound.vue"),

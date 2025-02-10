@@ -10,7 +10,7 @@ import Wrapper from '@/components/wrapper/Wrapper.vue'
                 
                 <div class="row ">
                     <div class="col-12 mt-2">
-                        <h2>About page</h2>
+                        <h2>Meet page</h2>
                     </div>
                 </div>
 

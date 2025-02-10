@@ -4,8 +4,11 @@ export const useAppStore = defineStore('appStore', {
     // Data
     state: () => ({
         count: 0,
-        name: 'ilan brunfman',
         users: [],
+        teams: [],
+        meets: [],
+        activeModal: false,
+        modalInstances: [],
     }),       
     
     // Methods
@@ -23,6 +26,19 @@ export const useAppStore = defineStore('appStore', {
             }
         },
 
+        ADD_MODAL(state) {
+            this.modalInstances.push(state)
+            this.activeModal = true
+        }, 
+
+        REMOVE_MODAL(state){
+            // console.log('REMOVE_MODAL has been clicked', state.component.__name)
+            this.activeModal = false
+            setTimeout( () => {
+                this.modalInstances.pop()
+            }, 10);
+        },
+
         incrementCount(state) {
             this.count++
         },
@@ -33,6 +49,56 @@ export const useAppStore = defineStore('appStore', {
             const data = await response.json()
     
             this.teams = data
+        },
+
+        // Add new team
+        async ADD_TEAM(team) {
+            this.teams.push(team)
+    
+            const response = await fetch('/api/teams', {
+                method: 'POST',
+                body: JSON.stringify(team),
+                headers: { 'Content-Type': 'application/json' }
+            })
+    
+            if (response.error) {
+                console.log(response.error)
+            }
+        },
+
+        // Delete Team
+        async DELETE_TEAM(id) {
+            this.teams = this.teams.filter((team) => team.id !== id)
+            // axios.delete(`/api/users/` + id)
+    
+            const response = await fetch('/api/teams/' + id, {
+                method: 'DELETE'
+            })
+    
+            if (response.error) {
+                console.log(response.error)
+            }
+        },
+
+        // Update Team
+        async UPDATE_TEAM(data) {
+            console.log('UPDATE_TEAM', data)
+            this.teams.map((team) => {
+                if (team.id === data.id) {
+                    team.id = data.id
+                    team.name = data.name
+                }
+            })
+  
+            const response = await fetch(`/api/teams/${data.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
+            })
+  
+            if (response.error) {
+                console.log(response.error)
+            }
         },
 
 

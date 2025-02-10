@@ -1,9 +1,9 @@
 
-// @import "./partials/_variables";
+// @use "./partials/_variables";
 // @import "./partials/_typography";
-@use "./partials/_global.scss";
-// @import "./partials/_template";
-// @import "./partials/_transition";
+@use "./partials/_global";
+@use "./partials/_template";
+@use "./partials/_transition";
 
 
 // pages
