@@ -1,7 +1,9 @@
+@use "@/styles/partials/variables" as var;
+
 .card{
     border-radius: 5px;
     // background-color: pink;
-    overflow: hidden;
+    // overflow: hidden;
     box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 
     &-header{
@@ -10,8 +12,37 @@
     }
 
     &-body{
+        position: relative;
         padding: 10px;
-        background-color: #fff;
+        background-color: var(--white);
+
+        .btn{
+            padding: 10px;
+        }
+
+        h5{
+            text-transform: capitalize;
+        }
+    }
+
+    &-menu{
+        position: relative;
+
+        background-color: lightsteelblue;
+        padding: 10px;
+
+        &:focus{
+            border: red solid 1px;
+        }
+        position: absolute;
+        z-index: 0;
+        top: 30px;
+        right: 10px;
+        width: 100px;
+        min-height: 20px;
+        background-color: var(--white);
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+        border-radius: 5px;
     }
 
     &-footer{

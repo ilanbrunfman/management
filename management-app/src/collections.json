@@ -1,47 +1,44 @@
 {
   "teams": [
     {
-      "id": "8106",
-      "name": "ilan",
-      "path": "ilan"
-    },
-    {
-      "id": "0313",
-      "name": "chen",
-      "path": "chen"
-    },
-    {
-      "id": "5206",
-      "name": "gilad",
-      "path": "gilad"
-    },
-    {
-      "id": "4077",
-      "name": "test",
-      "path": "test"
-    },
-    {
-      "id": "6946",
-      "name": "cool",
+      "id": "7043",
+      "name": "Cool",
       "path": "cool"
-    } 
+    },
+    {
+      "id": "2835",
+      "name": "Empire",
+      "path": "empire"
+    }
   ],
   "users": [
     {
-      "id": "ac3b",
-      "username": "ilan",
+      "id": "e579",
+      "name": "ilan",
+      "team": {
+        "id": "7043",
+        "name": "cool"
+      },
       "teamId": null,
-      "password": "brun"
+      "password": "1234"
     },
     {
       "id": "e388",
-      "username": "chen",
+      "name": "chen",
+      "team": {
+        "id": "0319",
+        "name": "ilan"
+      },
       "teamId": null,
       "password": "1234"
     },
     {
       "id": "a550",
-      "username": "gilad",
+      "name": "gilad",
+      "team": {
+        "id": "0319",
+        "name": "ilan"
+      },
       "password": "4321"
     }
   ],

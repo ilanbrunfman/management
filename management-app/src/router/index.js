@@ -11,6 +11,12 @@ const router = createRouter({
             meta: {
                 title: 'Home Page'
             },
+            // children: [
+            //   {
+            //     "path": '/',
+            //     "redirect": 'test'
+            //   },
+            // ]
         },
         {
             path: '/about',
@@ -20,30 +26,73 @@ const router = createRouter({
               title: 'About'
             }
         },
+
         {
-            path: '/teams',
-            name: 'team',
-            component: () => import('@/pages/team/Teams.vue'),
-            meta: {
-              title: 'Teams'
-            }
+          path: "/teams",
+          name: 'teams',
+          component: () => import('@/pages/team/Teams.vue'),
+          meta: {
+            title: 'Teams'
+          },
         },
         {
-            path: '/add-user',
-            name: 'add-user',
-            component: () => import('@/pages/user/AddUser.vue'),
-            meta: {
-              title: 'Add new user'
-            }
+          path: '/team/:teamId',
+          name: 'team',
+          component: () => import('@/pages/team/Team.vue'),
+          meta: {
+            title: 'Team'
+          }
         },
+
         {
-            path: '/add-meet',
-            name: 'add-meet',
-            component: () => import('@/pages/meet/AddMeet.vue'),
-            meta: {
-              title: 'Add new meet'
-            }
+          path: "/users",
+          name: 'users',
+          component: () => import('@/pages/user/Users.vue'),
+          meta: {
+            title: 'Users'
+          },
         },
+        
+        // {
+        //     path: '/team',
+        //     name: 'teams',
+        //     component: () => import('@/pages/team/Teams.vue'),
+        //     children: [
+        //       {
+        //         path: "/",
+        //         name: 'testtt',
+        //         // component: () => import('@/pages/team/Teams.vue'),
+        //         meta: {
+        //           title: 'Teams'
+        //         },
+        //       },
+        //       {
+        //         path: ':teamId',
+        //         name: 'team',
+        //         component: () => import('@/pages/team/Team.vue'),
+        //         meta: {
+        //           title: 'Team'
+        //         }
+        //       },
+        //     ]
+        // },
+
+        // {
+        //     path: '/add-user',
+        //     name: 'add-user',
+        //     component: () => import('@/pages/user/AddUser.vue'),
+        //     meta: {
+        //       title: 'Add new user'
+        //     }
+        // },
+        // {
+        //     path: '/add-meet',
+        //     name: 'add-meet',
+        //     component: () => import('@/pages/meet/AddMeet.vue'),
+        //     meta: {
+        //       title: 'Add new meet'
+        //     }
+        // },
         {
             path: "/:pathMatch(.*)*",
             name: "not-found",

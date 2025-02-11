@@ -26,6 +26,7 @@ const updateTeam = () => {
     const data = {
         id: props.modal.data.id,
         name: name.value,
+        // path: name.value,
         path: name.value.toLowerCase().replace(' ', '-'),
     }
 
@@ -74,7 +75,7 @@ const updateTeam = () => {
                 <h5>Cancel</h5>
             </button>
             <button class="btn" @click="updateTeam()">
-                <h5>Add Team</h5>
+                <h5>Update</h5>
             </button>
         </div>
     </template>

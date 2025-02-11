@@ -13,8 +13,9 @@ const props = defineProps({
 
 const links = [
     { name: 'Teams', path: '/teams', role: true,},
-    { name: 'Add new user', path: '/add-user', role: appStore.teams.length > 0 ? true : false, },
-    { name: 'Add new meet', path: '/add-meet', role: appStore.teams.length > 0 && appStore.users.length > 0? true : false, }
+    { name: 'Users', path: '/users', role: appStore.teams.length > 0 ? true : false,},
+    // { name: 'Add new user', path: '/add-user', role: appStore.teams.length > 0 ? true : false, },
+    // { name: 'Add new meet', path: '/add-meet', role: appStore.teams.length > 0 && appStore.users.length > 0? true : false, }
 ]
 
 const toggle = (item) => {

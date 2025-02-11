@@ -1,11 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { markRaw, ref, computed } from 'vue'
 import { useAppStore } from '@/stores/appStore.js'
 
 // components
 import Wrapper from '@/components/wrapper/Wrapper.vue'
+import UpdateTeam from '@/components/modal/modals/teams/UpdateTeam.vue';    
 
 const appStore = useAppStore()
+
+const teams = computed(() => {
+    return appStore.teams
+})
+
+const updateTeam = (team) => {
+    console.log('updateTeam has been clicked')
+    appStore.ADD_MODAL({component: markRaw(UpdateTeam), transition: 'nested',  data: team})
+}
 
 </script>
 
@@ -40,14 +50,20 @@ const appStore = useAppStore()
                         <div class="col box">
                             <div class="row">
                                 <div class="col-12">
-                                    <h3>Teams:</h3>
+                                    <h3 class="mb-2">Teams:</h3>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="teams">
-                                        <div v-for="(team, index) in appStore.teams" :key="index" class="team" v-if="appStore.teams.length > 0">
-                                            <p class="" v-html="team.name"></p>
+                                        <div v-for="(team, index) in teams" :key="index" class="team d-flex justify-content-between mb-1" v-if="appStore.teams.length > 0">
+
+                                            <RouterLink :to="`team/${team.id}`" class="nav-link">
+                                                <p class="" v-html="team.name"></p>
+                                            </RouterLink>
+                                            <button class="btn" @click="updateTeam(team)">
+                                                <label>Edit</label>
+                                            </button>
                                         </div>
                                         <p v-else>Teams list is empty</p>
 
@@ -58,7 +74,7 @@ const appStore = useAppStore()
                         <div class="col box">
                             <div class="row">
                                 <div class="col-12">
-                                    <h3>Meets:</h3>
+                                    <h3 class="mb-2">Meets:</h3>
                                 </div>
                             </div>
 

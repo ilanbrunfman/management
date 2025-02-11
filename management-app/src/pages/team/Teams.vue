@@ -25,6 +25,7 @@ const toggleEvent = () => {
 }
 
 const updateTeam = (team) => {
+    console.log('updateTeam has been clicked')
     appStore.ADD_MODAL({component: markRaw(UpdateTeam), transition: 'nested',  data: team})
 }
 

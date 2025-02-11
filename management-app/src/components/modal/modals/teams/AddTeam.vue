@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, computed } from 'vue';
 // import { RouterLink } from 'vue-router';
 import { useAppStore } from '@/stores/appStore.js';
 import Modal from '@/components/modal/Modal.vue';
@@ -11,13 +11,20 @@ const props = defineProps({
 })
 
 const name = ref('')
+const duplicateTeamName = ref(false)
 
 const closeModal = () => {
     appStore.REMOVE_MODAL(props)
 }
 
+const testFiltered = computed(() => {
+    return appStore.teams.filter(team =>
+        team.name.toLowerCase().includes(name.value.toLowerCase())
+      )
+})
+
 const addTeam = () => {
-    console.log('addTeam has been clicked');
+    
 
     const data = {
         name: name.value,
@@ -25,12 +32,25 @@ const addTeam = () => {
         id: Math.floor(Math.random() * 10000).toString().padStart(4, '0'),
     }
 
+    appStore.teams.filter(team =>{
+        if(team.name.toLowerCase().includes(name.value.toLowerCase())){
+            duplicateTeamName.value = true
+            console.log(name.value.toLowerCase())
+        } else {
+            duplicateTeamName.value = false
+        }}
+    )
+
     
-    if(name.value.length > 2){
+    if(name.value.length > 2 && !duplicateTeamName.value){
         appStore.ADD_TEAM(data)
         appStore.REMOVE_MODAL(props)
     
         name.value = ''
+
+        console.log('add new team');
+    } else {
+        console.log('issue to add new team', duplicateTeamName.value);
     }
 }
 
