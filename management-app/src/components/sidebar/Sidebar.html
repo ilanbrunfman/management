@@ -1,0 +1,25 @@
+<div :class="['sidebar', appStore.activeSidebar ? 'active' : '']">
+    <div class="sidebar-backdrop" @click="toggleSidebar()"></div>
+    <div class="sidebar-container">
+        
+        <div class="row sidebar-header">
+            <div class="col">
+                <button class="sidebar-icon" @click="toggleSidebar()">
+                    <SidebarIcon />
+                </button>
+            </div>
+        </div>
+    
+        <div class="row sidebar-body">
+            <div class="col">
+                <RouterLink v-for="(router, index) in links" :key="index" :to=router.path class="router-link" :title="router.name">
+                    <div :class="['router-link-item', appStore.activeNavigation ? 'active' : '']">
+                        <component class="icon" :is="router.icon" />
+                        <label>{{ router.name }}</label>
+                    </div>
+                </RouterLink>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -43,7 +43,6 @@ const router = createRouter({
             title: 'Team'
           }
         },
-
         {
           path: "/users",
           name: 'users',
@@ -52,6 +51,15 @@ const router = createRouter({
             title: 'Users'
           },
         },
+        {
+          path: '/user/:id',
+          name: 'user',
+          component: () => import('@/pages/user/User.vue'),
+          // meta: {
+          //   title: 'User'
+          // }
+        },
+        
         
         // {
         //     path: '/team',

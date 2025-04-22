@@ -1,0 +1,25 @@
+@use "@/styles/partials/variables" as var;
+
+main{
+    // padding-top: 80px;
+    padding-left: 0px;
+    // padding-left: 0px;
+    // // border-top: solid 1px red;
+    // // border-left: solid 1px red;
+
+    transition: padding 0.5s ease;
+
+    // @media (min-width: var.$md) {
+    //     padding-left: 100px;
+    //     &.active{
+    //         // padding-left: 240px;
+    //     }
+    // }
+
+    &.active{
+
+        @media (min-width: var.$md){
+            padding-left: 240px;
+        }
+    }
+}

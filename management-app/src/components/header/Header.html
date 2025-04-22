@@ -1,0 +1,25 @@
+<header :class="['header',]">
+    <div class="header-container">
+
+        <div class="col d-flex gap-1 gap-md-0">
+
+            <button v-if="!appStore.activeSidebar" :class="['btn-icon sidebar-icon']" @click="toggleSidebar()">
+                <SidebarIcon/>
+            </button>
+
+            <div :class="['header-logo', ]">
+                <h3 class="main-logo">CRUD</h3>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="header-menu">
+                <button class="btn-icon edit-icon-btn" @click="toggleAddItemModal()">
+                    <!-- <label>Menu</label> -->
+                    <EditIcon />
+                </button>
+            </div>
+        </div>
+        
+    </div>
+</header>

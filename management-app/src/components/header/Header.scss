@@ -1,0 +1,55 @@
+@use "@/styles/partials/variables" as var;
+
+:root{
+    --height: 60px;
+}
+
+.header{
+    position: relative;
+
+    &-container{
+        min-height: var(--height);
+        width: 100%;
+        // max-width: var.$max-width;
+        margin-inline: auto;
+        padding-inline:  3.0rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .btn-icon,
+        .sidebar-icon{
+            padding: 8px 0;
+            border-radius: 8px;
+            background-color:  transparent;
+
+            @media (min-width: var.$md){
+                padding: 8px;
+            }
+
+            svg{
+                path{
+                    fill: var(--black);
+                }
+            }
+            
+            &:hover{
+                background-color: #00000012;
+            }
+        }
+
+    }
+
+    &-logo{
+        display: flex;
+        align-items: center;
+
+        .main-logo{
+            color: rgba(var(--blackRGB), 1.0);
+            font-size: clamp(1.4rem, -0.875rem + 8.333vw, 2.4rem);
+            font-weight: 700;
+            cursor: default;
+        }
+    }
+
+}

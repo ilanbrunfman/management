@@ -2,11 +2,14 @@
   "teams": [
     {
       "id": "7043",
-      "name": "Cool",
-      "path": "cool"
+      "name": "Cool Swim Team"
     },
     {
       "id": "2835",
+      "name": "JCC"
+    },
+    {
+      "id": "1623",
       "name": "Empire",
       "path": "empire"
     }
@@ -14,32 +17,24 @@
   "users": [
     {
       "id": "e579",
-      "name": "ilan",
-      "team": {
-        "id": "7043",
-        "name": "cool"
-      },
-      "teamId": null,
-      "password": "1234"
+      "name": "Ilan Brunfman",
+      "teamId": "7043",
+      "password": "1234",
+      "role": "Coach"
     },
     {
       "id": "e388",
-      "name": "chen",
-      "team": {
-        "id": "0319",
-        "name": "ilan"
-      },
-      "teamId": null,
-      "password": "1234"
+      "name": "Chen Brunfman",
+      "teamId": "1623",
+      "password": "1234",
+      "role": ""
     },
     {
       "id": "a550",
-      "name": "gilad",
-      "team": {
-        "id": "0319",
-        "name": "ilan"
-      },
-      "password": "4321"
+      "name": "Gilad Brunfman",
+      "teamId": "2835",
+      "password": "4321",
+      "role": "Swimmer"
     }
   ],
   "meets": []

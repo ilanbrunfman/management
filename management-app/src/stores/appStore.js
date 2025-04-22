@@ -8,7 +8,12 @@ export const useAppStore = defineStore('appStore', {
         teams: [],
         meets: [],
         activeModal: false,
+        // activeNavigationDesktop: true,
+        // activeNavigationMobile: false,
         modalInstances: [],
+        isMobile: false,
+        // activeAside: true,
+        activeSidebar: true,
     }),       
     
     // Methods
@@ -17,6 +22,19 @@ export const useAppStore = defineStore('appStore', {
             console.log('CallMe has been called!')
         },
 
+        updateMediaQuery(){
+            this.isMobile = window.matchMedia('(max-width: 768px)').matches;
+        },
+
+        addMediaQuery(){
+            this.updateMediaQuery()
+            window.addEventListener('resize', this.updateMediaQuery);
+        },
+        removeMediaQuery(){
+            this.updateMediaQuery()
+            window.removeEventListener('resize', this.updateMediaQuery);
+        },
+        
         SET_STATE(props) {
             if( typeof props.stateName === 'string' ) {
                 this[props.stateName] = props.value
@@ -109,12 +127,41 @@ export const useAppStore = defineStore('appStore', {
     
             this.users = data
         },
+   
+        // Update User
+        async UPDATE_USER(data) {
+            console.log('UPDATE_USER', data)
+            this.users.map((user) => {
+                if (user.id === data.id) {
+                    user.id = data.id
+                    user.name = data.name
+                }
+            })
+    
+            const response = await fetch(`/api/users/${data.id}`, {
+                method: 'PUT',
+                body: JSON.stringify(data),
+                headers: { 'Content-Type': 'application/json' }
+            })
+    
+            if (response.error) {
+                console.log(response.error)
+            }
+        },
+
     },
+
 
     // Computed
     getters: {
         doubleCount: (state) => {
             return state.count * 2
-        }
+        },
+
+        // check: () => {
+        //     // updateMediaQuery();
+        //     // return window.addEventListener('resize', this.updateMediaQuery());
+        //     return !state.isMobile
+        // }
     }
 })

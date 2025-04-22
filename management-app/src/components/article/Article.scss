@@ -1,0 +1,13 @@
+@use "@/styles/partials/variables" as var;
+
+.article{
+    &-container{}
+    &-header{}
+    &-body{
+        border-radius: 5px;
+        // padding: 10px;
+        border: solid 1px rgba(var(--blackRGB), 0.125);
+        background-color: var(--pureWhite);
+    }
+    &-footer{}
+}

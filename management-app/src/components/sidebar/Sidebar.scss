@@ -1,0 +1,104 @@
+@use "@/styles/partials/variables" as var;
+
+.sidebar{
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh);
+    
+    transition: left 0.5s ease;
+    overflow-x: hidden;
+
+    @media (min-width: var.$md){
+        left: -240px;
+        width: 240px;
+    }
+
+    &.active{
+        left: 0;
+    }
+
+    &-container{
+        position: relative;
+        width: 240px;
+        height: calc(100vh);
+        background-color: rgba(var(--whiteRGB), 1.0);
+    }
+
+    &-backdrop{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background-color: #00000012;
+    }
+
+    &-header{
+        display: flex;
+        align-items: center;
+        height: 60px;
+        padding-inline: 12px;
+
+        .sidebar-icon{
+            padding: 8px;
+            border-radius: 8px;
+
+            svg{
+                path{
+                    fill: var(--copy);
+                }
+            }
+            
+            &:hover{
+                background-color: #00000012;
+            }
+        }
+
+    }
+
+    &-body{
+        padding-inline: 12px;
+
+        .router-link{
+            position: relative;
+            
+            &-item{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 12px;
+                min-height: 48px;
+                padding: 12px 12px;
+                border-radius: 8px;
+
+                &:hover{
+                    background-color: #00000012;
+                }
+
+                label{
+                    font-size: 14px;
+                    font-weight: 400;
+                    color: rgba(var(--blackRGB), 1.0);
+                }
+                .icon{
+                    width: 20px;
+                    height: 20px;
+                    
+                    svg{
+                        min-width: 18px;
+                        min-height: 18px;
+                        path{
+                            fill: rgba(var(--copyRGB), 1.0);
+                        }
+                    }
+                }
+            }
+
+            
+
+        }
+    }
+}

@@ -1,0 +1,19 @@
+<article :class="['article', type]">
+
+    <div v-if="$slots.header" :class="['article-header', header]">
+        <slot name="header"/>
+    </div>
+
+    <template v-if="$slots.body">
+        <div :class="['article-body', ]">
+            <div :class="['article-container', ]">
+                <slot name="body"/>
+            </div>
+        </div>
+    </template>
+
+    <div v-if="$slots.footer"  :class="['article-footer', footer]">
+        <slot name="footer"/>
+    </div>
+
+</article>

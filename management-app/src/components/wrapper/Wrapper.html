@@ -1,0 +1,23 @@
+<div :class="['' ]">
+
+    <transition 
+        v-for="(modal, index) in appStore.modalInstances" 
+        :key="index" 
+        :appear="true" 
+        :name="modal.transition || 'fade'"
+    >
+        <component 
+            :is="modal.component" 
+            :modal="modal"
+            v-if="appStore.activeModal" 
+        />
+    </transition>
+
+    <Sidebar />
+
+    <main :class="['', appStore.activeSidebar ? 'active' : '']">
+        <Header />
+        <slot name="body" />
+    </main>
+
+</div>

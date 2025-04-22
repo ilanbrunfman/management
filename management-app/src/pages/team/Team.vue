@@ -5,6 +5,7 @@ import { useAppStore } from '@/stores/appStore.js'
 
 // components
 import Wrapper from '@/components/wrapper/Wrapper.vue'
+import Article from '@/components/article/Article.Vue'
 
 const route = useRoute()
 const appStore = useAppStore()
@@ -14,7 +15,7 @@ const team = computed(() => {
 })
 
 const users = computed(() => {
-    return appStore.users.filter((user) => user.team.id === team.value.id)
+    return appStore.users.filter((user) => user.teamId === team.value.id)
 })
 
 onMounted(() => {})
@@ -26,10 +27,19 @@ onMounted(() => {})
     <Wrapper class="about">
         <template #body>
             <div class="container">
-                
-                <div class="row ">
-                    <div class="col-12 mt-2 mb-3">
-                        <h3>{{ team.name }}</h3>
+
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <Article>
+                            <template #header>
+                                <h3 class="sub-title mb-3" v-html="team.name"></h3>
+                            </template>
+
+                            <template #body>
+                                <h2>ilan</h2>
+                            </template>
+
+                        </Article>
                     </div>
                 </div>
 
